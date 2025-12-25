@@ -1,10 +1,11 @@
 from fastapi import APIRouter, FastAPI
 from controllers import submit_project, update_marks, get_all_submissions, get_submission_details
-from models import Submission, MarksUpdate
+from models import MarksUpdate
 from fastapi import UploadFile, File, Form
 from typing import List
 
 app = FastAPI()
+router = APIRouter()
 
 @app.get("/")
 def read_root():
@@ -28,3 +29,5 @@ def get_all_submissions_endpoint():
 @app.patch("/api/update-marks/{id}")
 def update_marks_endpoint(id: str, payload: MarksUpdate):
     return update_marks(id, payload.marks)
+
+app.include_router(router)
