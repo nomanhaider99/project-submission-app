@@ -7,7 +7,6 @@ typing
 pydantic
 socket
 smtplib
-email
 os
 google_auth_oauthlib
 googleapiclient
