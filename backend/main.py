@@ -1,6 +1,11 @@
 from fastapi import APIRouter, FastAPI
 from controllers import submit_project, update_marks, get_all_submissions, get_submission_details
 from models import Submission, MarksUpdate
+from fastapi import UploadFile, File, Form
+from typing import List
+from drive import create_folder, upload_file_to_folder, get_folder_link
+import json, os, uuid, shutil
+
 
 app = FastAPI()
 router = APIRouter()
@@ -10,8 +15,11 @@ def read_root():
     return {"message": "FastAPI is running!"}
 
 @app.post("/api/submit-project")
-def submit_project_endpoint(data: Submission):
-    return submit_project(data)
+def submit_project_endpoint(
+    data: str = Form(...),
+    files: List[UploadFile] = File(...)
+):
+    return submit_project(data, files)
 
 @app.get("/api/get-submission-details/{id}")
 def get_submission_details_endpoint(id: str):
