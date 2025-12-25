@@ -10,7 +10,6 @@ from mailer import send_email_message
 from drive import create_folder, upload_file_to_folder, get_folder_link
 import os
 import shutil
-import json
 
 load_dotenv()
 

@@ -2,3 +2,16 @@ fastapi
 uvicorn
 pymongo
 dotenv
+drive
+typing
+pydantic
+socket
+smtplib
+email
+os
+google_auth_oauthlib
+googleapiclient
+google
+shutil
+bson
+datetime
