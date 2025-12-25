@@ -3,9 +3,6 @@ from controllers import submit_project, update_marks, get_all_submissions, get_s
 from models import Submission, MarksUpdate
 from fastapi import UploadFile, File, Form
 from typing import List
-from drive import create_folder, upload_file_to_folder, get_folder_link
-import json, os, uuid, shutil
-
 
 app = FastAPI()
 router = APIRouter()

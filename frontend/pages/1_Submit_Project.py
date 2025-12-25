@@ -1,7 +1,5 @@
 import streamlit as st
 import requests
-import zipfile
-import os
 import json
 from config import API_BASE_URL
 

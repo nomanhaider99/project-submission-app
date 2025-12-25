@@ -16,8 +16,6 @@ if st.button("Check Status", use_container_width=True):
         st.stop()
 
     try:
-        # Backend doesn't provide a direct "get-by-student-id" endpoint,
-        # so fetch all submissions and filter locally.
         res = requests.get(f"{API_BASE_URL}/get-all-submissions")
 
         if res.status_code == 200:
@@ -34,7 +32,6 @@ if st.button("Check Status", use_container_width=True):
             if not matches:
                 st.error("❌ No submission found for that Student ID")
             else:
-                # show first match (or you could iterate through all)
                 data = matches[0]
 
                 st.subheader("📄 Project Information")

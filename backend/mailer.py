@@ -2,7 +2,6 @@ import smtplib
 from email.message import EmailMessage
 from dotenv import load_dotenv
 import os
-import json
 import socket
 
 load_dotenv()

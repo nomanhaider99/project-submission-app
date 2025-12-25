@@ -1,11 +1,12 @@
+import os
 import streamlit as st
 import requests
 import webbrowser
 from config import API_BASE_URL
+from dotenv import load_dotenv
 
-# --------------------------------------------------
-# Page Config
-# --------------------------------------------------
+load_dotenv()
+
 st.set_page_config(
     page_title="Admin Panel",
     page_icon="🛠️",
@@ -17,7 +18,7 @@ st.title("🛠️ Admin Panel – Project Evaluation")
 # --------------------------------------------------
 # Simple Admin Authentication
 # --------------------------------------------------
-ADMIN_PASSWORD = "admin123" # move to .env if needed
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD") 
 
 if "admin_authenticated" not in st.session_state:
     st.session_state.admin_authenticated = False
@@ -30,10 +31,12 @@ if not st.session_state.admin_authenticated:
         if password == ADMIN_PASSWORD:
             st.session_state.admin_authenticated = True
             st.success("✅ Logged in successfully")
+            st.rerun()  # <<< REQUIRED
         else:
             st.error("❌ Incorrect password")
 
     st.stop()
+
 
 # --------------------------------------------------
 # Fetch All Submissions
