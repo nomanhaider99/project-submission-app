@@ -41,7 +41,7 @@ Students can submit their project details and files through a user-friendly inte
 
 ### 🔧 Technology Stack & Architecture:
 - **Frontend:** Streamlit (Python-based interactive UI)
-- **Backend:** FastAPI (high-performance REST API)
+- **Backend:** FastAPI (high-performance RESTful API)
 - **Database:** MongoDB (NoSQL database for flexible data storage)
 - **File Storage:** Google Drive (used to store uploaded project folders securely)
 
@@ -55,3 +55,5 @@ Students can submit their project details and files through a user-friendly inte
 
 This application demonstrates the practical use of **full-stack Python development**, integrating modern backend frameworks with cloud storage and database systems.
 """)
+
+st.markdown("---")
