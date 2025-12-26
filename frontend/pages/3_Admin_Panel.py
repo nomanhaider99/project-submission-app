@@ -3,9 +3,6 @@ import streamlit as st
 import requests
 import webbrowser
 from config import API_BASE_URL
-from dotenv import load_dotenv
-
-load_dotenv()
 
 st.set_page_config(
     page_title="Admin Panel",
@@ -18,7 +15,7 @@ st.title("🛠️ Admin Panel – Project Evaluation")
 # --------------------------------------------------
 # Simple Admin Authentication
 # --------------------------------------------------
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD") 
+ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"] 
 
 if "admin_authenticated" not in st.session_state:
     st.session_state.admin_authenticated = False
